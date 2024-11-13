@@ -1,0 +1,6 @@
+@ApiFeria_HostAddress = http://localhost:5037
+
+GET {{ApiFeria_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
