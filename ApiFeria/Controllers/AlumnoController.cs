@@ -25,7 +25,7 @@ namespace ApiFeria.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Alumno>> GetAlumnoID(int id)
+        public async Task<ActionResult<Alumno>> GetAlumnoID(string id)
         {
             var alumnoid = await _context.alumnos.FindAsync(id);
             return Ok(alumnoid);
@@ -41,7 +41,7 @@ namespace ApiFeria.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Alumno>> EliminarAlumno(int id)
+        public async Task<ActionResult<Alumno>> EliminarAlumno(string id)
         {
             var alumnoelim = await _context.alumnos.FindAsync(id);
             if (alumnoelim == null)
@@ -55,7 +55,7 @@ namespace ApiFeria.Controllers
 
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> PutAlumno(int id, Alumno alumno)
+        public async Task<IActionResult> PutAlumno(string id, Alumno alumno)
         {
             if (id != alumno.ID)
             {
