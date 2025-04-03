@@ -1,7 +1,7 @@
-# API de Acceso por QR
+# API FeriaUDI24
 
 ## Descripción
-Esta API está diseñada para integrarse con una aplicación en .NET MAUI que gestiona el acceso a eventos mediante códigos QR. Permite obtener información de los asistentes a través de consultas a una base de datos MySQL.
+Esta API está diseñada para integrarse con una aplicación en .NET MAUI que gestiona el acceso a eventos mediante códigos QR. Permite obtener información de los asistentes y registrar su asistencia a través de consultas a una base de datos MySQL.
 
 ## Tecnologías Utilizadas
 - **.NET Core 8**
@@ -41,6 +41,7 @@ Antes de ejecutar la API, asegúrate de contar con lo siguiente:
 |--------|------------------|------------------------------------|
 | GET    | `/api/usuarios`  | Obtiene la lista de todos los usuarios |
 | GET    | `/api/usuarios/{id}` | Obtiene un usuario por ID basado en el QR |
+| PUT    | `/api/usuarios/{id}` | Registra la asistencia del usuario |
 
 ### Ejemplo de Uso
 #### 1. Obtener todos los usuarios
@@ -59,6 +60,21 @@ Ejemplo de respuesta:
   "nombre": "Juan Pérez",
   "evento": "Tech Conference 2025",
   "estatus": "Autorizado"
+}
+```
+
+#### 3. Registrar asistencia de un usuario
+```bash
+PUT http://localhost:5000/api/usuarios/12345
+```
+
+Ejemplo de cuerpo de la petición:
+```json
+{
+  "asistencia": {
+    "miercoles": true,
+    "jueves": false
+  }
 }
 ```
 
